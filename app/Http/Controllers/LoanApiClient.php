@@ -9,6 +9,6 @@ class LoanApiClient extends Controller
     public function index()
     {
         $client = new \App\LoanApplication();
-        $client->test();
+        $client->send();
     }
 }
