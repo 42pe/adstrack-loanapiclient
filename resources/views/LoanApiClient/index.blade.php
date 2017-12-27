@@ -2,150 +2,15 @@
 @extends('layouts/app')
 
 @section('content')
-
-<script type="text/javascript">
-    function getSubmitted() {
-        $.ajax({
-            type: "POST",
-            url: "/newsite/public/LoanApplication",
-            data: $('#LoanApplication').serialize(),
-            contentType: "application/x-www-form-urlencoded; charset=utf-8",
-            success: function(data) {
-                $('body').replaceWith(data);
-            },
-            error: function(error) {
-                console.log(error);
-            }
-
-        });
-        //    console.log("Check form");
-        //    if ($('#LoanApplication').valid == true) {
-        //        if(confirm("Are you sure you want to submit?")) {
-        //            return false;
-        //        }
-        //    } else {
-        //        $('.alert').removeClass("collapse");
-        //        $('.alert').alert('show');
-        //    }
-    }
-
-
-    function showJointApplicantTab(el) {
-        $secondary = $('.secondary-applicant');
-        $secondary.each(function(e) {
-            $div = $($secondary)[e];
-            $($div).removeClass("disabled");
-        });
-    }
-
-    function hideJointApplicantTab(el) {
-        $secondary = $('.secondary-applicant');
-        $secondary.each(function(e) {
-            $div = $($secondary)[e];
-            $($div).addClass("disabled");
-        });
-    }
-
-    function swapBottom(flag) {
-        if (flag == "off") {
-            $('#bottom-1').show();
-            $('#bottom-2').hide();
-            $('.tab-pane').show();
-            $('.next-step').show();
-        } else {
-            $('#bottom-1').hide();
-            $('.tab-pane').hide();
-            $('#bottom-2').show();
-            $('.next-step').hide();
-            $('.prev-step').hide();
-        }
-    }
-
-    function nextTab(el) {
-        $nextTab = $(el).next('div');
-        if(!$($nextTab).hasClass("tab-pane") || $($nextTab).hasClass("disabled")) {
-            swapBottom("on");
-            return false;
-        }
-        $(el).removeClass("active");
-        $($nextTab).addClass("active");
-    }
-
-    function prevTab(el) {
-        $prevTab = $(el).prev('div');
-        if (!$($prevTab).hasClass("tab-pane")) {
-            return false;
-        }
-        swapBottom("off");
-        $(el).removeClass("active");
-        $($prevTab).addClass("active");
-    }
-
-
-    $(document).ready(function() {
-        $('.prev-step').hide();
-        $('.nav-tabs > li a[title]').tooltip();
-
-        $('.next-step').on("click", function(e) {
-            $('.prev-step').show();
-            var $inputs = $('.tab-content .active').find("input");
-            var $selects = $('.tab-content .active').find("select");
-            var valid = true;
-
-            $inputs.each(function() {
-                if(!$(this).valid() && valid) {
-                    valid = false;
-                }
-            });
-            $selects.each(function() {
-                if(!$(this).valid() && valid) {
-                    valid = false;
-                }
-            });
-
-            if (valid === false) {
-                return false;
-            }
-            var $active=$('.tab-content > .tab-pane.active');
-            nextTab($active);
-        });
-        $('.prev-step').on("click", function(e) {
-            var $active = $('.tab-content > .tab-pane.active');
-            prevTab($active);
-        });
-
-        $('input[name=ApplicationType]').on('change', function(e) {
-            if($('input[name="data[ApplicationType]"]:checked').val() == 'Joint') {
-                showJointApplicantTab(e);
-            } else {
-                hideJointApplicantTab(e);
-            }
-        });
-
-        $('#getresults').on("click", function(e) {
-            getSubmitted();
-        });
-
-        $("[data-hide]").on("click", function(e) {
-            $('.alert').addClass("collapse");
-            $('.alert').alert('hide');
-        });
-        //use link to submit form instead of button
-        $("a[id=submit]").click(function() {
-            $(this).parents("form").submit();
-        });
-    });
-
-</script>
-
+<script src="js/loanForm.js"></script>
 
 <div class="row  no-gutters myBg " style="background-image:url('img/same-day-loan.jpg');">
     <div class="col-lg-6 offset-lg-6 p-3 myBlue">
         <div class="row">
             <div class="col-md-12">
 
-                <form id="LoanApplication" role="form" action="/LoanApplication" method="POST" onSubmit="getSubmitted()">
-
+                <form id="LoanApplication" role="form" method="POST">
+                    {{ csrf_field() }}
                     <div id="bottom-2" role="tabpanel" class="tab-pane active p-2 collapse">
 
                         <div class="small mt-1">
@@ -159,7 +24,7 @@
                         </div>
 
                         <div class="align-middle text-center">
-                            <button id="getresults" class="btn btn-primary text-center" onClick="$('#LoanApplication').validate();">Get Your Results</button>
+                            <button id="getresults" class="btn btn-primary text-center" type="submit">Get Your Results</button>
                         </div>
                     </div>
 
@@ -241,10 +106,6 @@
                         <!-- Step #2 -->
                         <div role="tabpanel" class="tab-pane p-2">
                             <h5>Applicant Information</h5>
-                            <div class="form-group">
-                                <label class="col-form-label">Applicant Type</label>
-                                <input type="text" class="form-control" name="data[applicants][0][ApplicantType]" required>
-                            </div>
                             <div class="form-group">
                                 <label class="col-form-label">First Name</label>
                                 <input type="text" class="form-control" name="data[applicants][0][FirstName]" required>
@@ -340,7 +201,14 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label">Primary Phone</label>
-                                <input type="tel" name="data[applicants][0][PhoneNumber]" class="form-control" required />
+                                <div class="input-group">
+                                    <span class="input-group-addon"> ( </span>
+                                    <input type="tel" name="data[applicants][0][PhoneNumber][0]" class="form-control col-sm-3 text-center" placeholder="555" />
+                                    <span class="input-group-addon"> ) </span>
+                                    <input type="tel" name="data[applicants][0][PhoneNumber][1]" class="form-control col-sm-3 text-center" placeholder="123" />
+                                    <span class="input-group-addon"> - </span>
+                                    <input type="tel" name="data[applicants][0][PhoneNumber][2]" class="form-control col-sm-4 text-center" placeholder="4567" />
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -490,7 +358,14 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label">Emplyer Phone</label>
-                                <input type="tel" name="data[employment][0][PhoneNumber]" class="form-control" />
+                                <div class="input-group">
+                                    <span class="input-group-addon"> ( </span>
+                                    <input type="tel" name="data[employment][0][PhoneNumber][0]" class="form-control col-sm-3 text-center" placeholder="555" />
+                                    <span class="input-group-addon"> ) </span>
+                                    <input type="tel" name="data[employment][0][PhoneNumber][1]" class="form-control col-sm-3 text-center" placeholder="123" />
+                                    <span class="input-group-addon"> - </span>
+                                    <input type="tel" name="data[employment][0][PhoneNumber][2]" class="form-control col-sm-4 text-center" placeholder="4567" />
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -529,7 +404,7 @@
                             <div class="form-group">
                                 <label class="col-form-label">Estimated Monthly Housing Costs</label>
                                 <div class="">
-                                    <input type="text" class="form-control" name="data[financial][0][EstimatedMonthlyHousing Costs]" />
+                                    <input type="text" class="form-control" name="data[financial][0][EstimatedMonthlyHousingCosts]" />
                                 </div>
                             </div>
                             <div class="form-group">

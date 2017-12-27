@@ -8,8 +8,13 @@ class LoanApiClient extends Controller
 {
     public function index()
     {
-        $client = new \App\LoanApplication();
-        // $client->send();
         return view('LoanApiClient/index');
+    }
+
+    public function post()
+    {
+        $client   = new \App\LoanApplication($_POST['data']);
+        $response = $client->send();
+        return view('LoanApiClient/response')->with(compact('response'));
     }
 }

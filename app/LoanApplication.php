@@ -3,81 +3,90 @@ namespace App;
 
 class LoanApplication
 {
+    private $data = [];
 
     private function buildBody()
     {
+        $applicationId = time();
+        $driversLicense = substr($this->data['applicants'][0]['DriversLicense'], -4, 4);
         $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
                 <LoanApplication>
-                    <LoanApplicationType>Individual</LoanApplicationType>
-                    <LoanPrimaryPurpose descriptionIfOther=\"\">NewAutoPurchase</LoanPrimaryPurpose>
-                    <LoanAmount>50000</LoanAmount>
-                    <LoanTermMonths>60</LoanTermMonths>
-                    <LoanPaymentType>AutoPay</LoanPaymentType>
-                    <ApplicationId>500000111111</ApplicationId>
+                    <LoanApplicationType>{$this->data['ApplicationType']}</LoanApplicationType>
+                    <LoanPrimaryPurpose descriptionIfOther=\"{$this->data['LoanPurposeDescription']}\">
+                        {$this->data['LoanPurpose']}
+                    </LoanPrimaryPurpose>
+                    <LoanAmount>{$this->data['LoanAmount']}</LoanAmount>
+                    <LoanTermMonths>{$this->data['LoanTerm']}</LoanTermMonths>
+                    <LoanPaymentType>{$this->data['PaymentType']}</LoanPaymentType>
+                    <ApplicationId>$applicationId</ApplicationId>
                     <Applicants>
                         <Applicant type=\"Primary\">
-                        <FirstName>First</FirstName>
-                        <MiddleInitial>M</MiddleInitial>
-                        <LastName>Last</LastName>
-                        <SocialSecurityNumber>534655111</SocialSecurityNumber>
-                        <DateOfBirth>1951-05-05</DateOfBirth>
-                        <EmailAddress>firstname@xyztest.com</EmailAddress>
-                        <DriversLicenseLastFourDigits>5123</DriversLicenseLastFourDigits>
-                        <Residence ownership=\"Own\">
+                        <FirstName>{$this->data['applicants'][0]['FirstName']}</FirstName>
+                        <MiddleInitial>{$this->data['applicants'][0]['MiddleInitial']}</MiddleInitial>
+                        <LastName>{$this->data['applicants'][0]['LastName']}</LastName>
+                        <SocialSecurityNumber>{$this->data['applicants'][0]['SocialSecurityNumber']}</SocialSecurityNumber>
+                        <DateOfBirth>{$this->data['applicants'][0]['DateOfBirth']}</DateOfBirth>
+                        <EmailAddress>{$this->data['applicants'][0]['EmailAddress']}</EmailAddress>
+                        <DriversLicenseLastFourDigits>$driversLicense</DriversLicenseLastFourDigits>
+                        <Residence ownership=\"{$this->data['applicants'][0]['HousingStatus']}\">
                             <Address>
-                            <AddressLine>12 Main St</AddressLine>
-                            <SecondaryUnit type=\"Apartment\" />
-                            <City>San Diego</City>
-                            <State>CA</State>
-                            <ZipCode>
-                                <FiveDigitZipCode>92101</FiveDigitZipCode>
-                            </ZipCode>
-                            </Address>
-                            <TimeAtAddress>
-                            <Months>6</Months>
-                            <Years>1</Years>
-                            </TimeAtAddress>
-                            <PhoneNumber>
-                            <AreaCode>619</AreaCode>
-                            <CentralOfficeCode>893</CentralOfficeCode>
-                            <LineNumber>4567</LineNumber>
-                            </PhoneNumber>
-                        </Residence>
-                        <Occupation type=\"EmployedByOther\">
-                            <OccupationDescription>Analyst</OccupationDescription>
-                            <GrossAnnualIncome>60000.00</GrossAnnualIncome>
-                            <Employer>
-                            <EmployerName>FirstAgain, LLC</EmployerName>
-                            <Address>
-                                <AddressLine>1 Maple</AddressLine>
-                                <SecondaryUnit type=\"Suite\">1300</SecondaryUnit>
-                                <City>San Diego</City>
-                                <State>CA</State>
+                                <AddressLine>{$this->data['applicants'][0]['AddressLine']}</AddressLine>
+                                <SecondaryUnit type=\"Apartment\" />
+                                <City>{$this->data['applicants'][0]['City']}</City>
+                                <State>{$this->data['applicants'][0]['State']}</State>
                                 <ZipCode>
-                                <FiveDigitZipCode>92101</FiveDigitZipCode>
-                                <ZipPlus4Code />
+                                    <FiveDigitZipCode>{$this->data['applicants'][0]['ZipCode']}</FiveDigitZipCode>
                                 </ZipCode>
                             </Address>
-                            <TimeWithEmployer>
-                                <Months>6</Months>
-                                <Years>1</Years>
-                            </TimeWithEmployer>
+                            <TimeAtAddress>
+                                <Months>0</Months>
+                                <Years>{$this->data['applicants'][0]['TimeAtAddress']}</Years>
+                            </TimeAtAddress>
                             <PhoneNumber>
-                                <AreaCode>808</AreaCode>
-                                <CentralOfficeCode>893</CentralOfficeCode>
-                                <LineNumber>4567</LineNumber>
+                                <AreaCode>{$this->data['applicants'][0]['PhoneNumber'][0]}</AreaCode>
+                                <CentralOfficeCode>{$this->data['applicants'][0]['PhoneNumber'][1]}</CentralOfficeCode>
+                                <LineNumber>{$this->data['applicants'][0]['PhoneNumber'][2]}</LineNumber>
                             </PhoneNumber>
+                        </Residence>
+                        <Occupation type=\"{$this->data['employment'][0]['WorkStatus']}\">
+                            <OccupationDescription>{$this->data['employment'][0]['OcupationDescription']}</OccupationDescription>
+                            <GrossAnnualIncome>{$this->data['employment'][0]['GrossAnnualIncome']}</GrossAnnualIncome>
+                            <Employer>
+                                <EmployerName>{$this->data['employment'][0]['EmployerName']}</EmployerName>
+                                <Address>
+                                    <AddressLine>{$this->data['employment'][0]['AddressLine']}</AddressLine>
+                                    <SecondaryUnit type=\"Suite\">{$this->data['employment'][0]['Unit']}</SecondaryUnit>
+                                    <City>{$this->data['employment'][0]['City']}</City>
+                                    <State>{$this->data['employment'][0]['State']}</State>
+                                    <ZipCode>
+                                        <FiveDigitZipCode>{$this->data['employment'][0]['ZipCode']}</FiveDigitZipCode>
+                                    </ZipCode>
+                                </Address>
+                                <TimeWithEmployer>
+                                    <Months>0</Months>
+                                    <Years>{$this->data['employment'][0]['TimeAtAddress']}</Years>
+                                </TimeWithEmployer>
+                                <PhoneNumber>
+                                    <AreaCode>{$this->data['employment'][0]['PhoneNumber'][0]}</AreaCode>
+                                    <CentralOfficeCode>{$this->data['employment'][0]['PhoneNumber'][1]}</CentralOfficeCode>
+                                    <LineNumber>{$this->data['employment'][0]['PhoneNumber'][2]}</LineNumber>
+                                </PhoneNumber>
                             </Employer>
                         </Occupation>
                         </Applicant>
                     </Applicants>
                     <CombinedFinancials>
-                        <MonthlyHousingCosts>1150</MonthlyHousingCosts>
-                        <OtherAnnualIncome source=\"Alimony\">36000.00</OtherAnnualIncome>
+                        <MonthlyHousingCosts>{$this->data['financial'][0]['EstimatedMonthlyHousingCosts']}</MonthlyHousingCosts>
+                        <OtherAnnualIncome source=\"Alimony\">{$this->data['financial'][0]['OtherAnnualIncome']}</OtherAnnualIncome>
                     </CombinedFinancials>
                 </LoanApplication>
         ";
         return $xml;
+    }
+
+    public function __construct($data)
+    {
+        $this->data = $data;
     }
 
 

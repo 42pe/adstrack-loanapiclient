@@ -13,3 +13,4 @@
 
 
 Route::get('/', 'LoanApiClient@index');
+Route::post('/', 'LoanApiClient@post');
