@@ -6,76 +6,77 @@ class LoanApplication
 
     private function buildBody()
     {
-        $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-            <LoanApplication>
-                <LoanApplicationType>Individual</LoanApplicationType>
-                <LoanPrimaryPurpose>AutoRefinancing</LoanPrimaryPurpose>
-                <LoanAmount>12000</LoanAmount>
-                <LoanTermMonths>48</LoanTermMonths>
-                <LoanPaymentType>AutoPay</LoanPaymentType>
-                <ApplicationId>3565653</ApplicationId>
-                <Applicants>
-                    <Applicant type=\"Primary\">
-                        <FirstName>Will</FirstName>
-                        <MiddleInitial />
-                        <LastName>Cliffe</LastName>
-                        <SocialSecurityNumber>123456789</SocialSecurityNumber>
-                        <DateOfBirth>1997-07-08</DateOfBirth>
-                        <EmailAddress>will@adstrack.io</EmailAddress>
-                        <DriversLicenseLastFourDigits />
+        $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
+                <LoanApplication>
+                    <LoanApplicationType>Individual</LoanApplicationType>
+                    <LoanPrimaryPurpose descriptionIfOther=\"\">NewAutoPurchase</LoanPrimaryPurpose>
+                    <LoanAmount>50000</LoanAmount>
+                    <LoanTermMonths>60</LoanTermMonths>
+                    <LoanPaymentType>AutoPay</LoanPaymentType>
+                    <ApplicationId>500000111111</ApplicationId>
+                    <Applicants>
+                        <Applicant type=\"Primary\">
+                        <FirstName>First</FirstName>
+                        <MiddleInitial>M</MiddleInitial>
+                        <LastName>Last</LastName>
+                        <SocialSecurityNumber>534655111</SocialSecurityNumber>
+                        <DateOfBirth>1951-05-05</DateOfBirth>
+                        <EmailAddress>firstname@xyztest.com</EmailAddress>
+                        <DriversLicenseLastFourDigits>5123</DriversLicenseLastFourDigits>
                         <Residence ownership=\"Own\">
                             <Address>
-                                <AddressLine>123 Example St.</AddressLine>
-                                <SecondaryUnit type=\"\"></SecondaryUnit>
-                                <City>Seattle</City>
-                                <State>WA</State>
-                                <ZipCode>
-                                    <FiveDigitZipCode>98101</FiveDigitZipCode>
-                                    <ZipPlus4Code />
-                                </ZipCode>
+                            <AddressLine>12 Main St</AddressLine>
+                            <SecondaryUnit type=\"Apartment\" />
+                            <City>San Diego</City>
+                            <State>CA</State>
+                            <ZipCode>
+                                <FiveDigitZipCode>92101</FiveDigitZipCode>
+                            </ZipCode>
                             </Address>
                             <TimeAtAddress>
-                                <Days>0</Days>
-                                <Months>0</Months>
-                                <Years>0</Years>
+                            <Months>6</Months>
+                            <Years>1</Years>
                             </TimeAtAddress>
                             <PhoneNumber>
-                                <AreaCode>800</AreaCode>
-                                <CentralOfficeCode>555</CentralOfficeCode>
-                                <LineNumber>1234</LineNumber>
+                            <AreaCode>619</AreaCode>
+                            <CentralOfficeCode>893</CentralOfficeCode>
+                            <LineNumber>4567</LineNumber>
                             </PhoneNumber>
                         </Residence>
-                        <Occupation>
-                            <Type />
-                            <OccupationDescription>Manager</OccupationDescription>
-                            <GrossAnnualIncome>110000</GrossAnnualIncome>
+                        <Occupation type=\"EmployedByOther\">
+                            <OccupationDescription>Analyst</OccupationDescription>
+                            <GrossAnnualIncome>60000.00</GrossAnnualIncome>
                             <Employer>
-                                <EmployerName>Acme</EmployerName>
-                                <Address>
-                                    <AddressLine>123 Foo St.</AddressLine>
-                                    <SecondaryUnit type=\"Suite\">100</SecondaryUnit>
-                                    <City>Seattle</City>
-                                    <State>WA</State>
-                                    <ZipCode>
-                                        <FiveDigitZipCode>98101</FiveDigitZipCode>
-                                        <ZipPlus4Code />
-                                    </ZipCode>
-                                </Address>
-                                <TimeWithEmployer>
-                                    <Days>23</Days>
-                                    <Months>4</Months>
-                                    <Years>6</Years>
-                                </TimeWithEmployer>
-                                <EmployerPhoneNumber>
-                                    <AreaCode>800</AreaCode>
-                                    <CentralOfficeCode>555</CentralOfficeCode>
-                                    <LineNumber>0001</LineNumber>
-                                </EmployerPhoneNumber>
+                            <EmployerName>FirstAgain, LLC</EmployerName>
+                            <Address>
+                                <AddressLine>1 Maple</AddressLine>
+                                <SecondaryUnit type=\"Suite\">1300</SecondaryUnit>
+                                <City>San Diego</City>
+                                <State>CA</State>
+                                <ZipCode>
+                                <FiveDigitZipCode>92101</FiveDigitZipCode>
+                                <ZipPlus4Code />
+                                </ZipCode>
+                            </Address>
+                            <TimeWithEmployer>
+                                <Months>6</Months>
+                                <Years>1</Years>
+                            </TimeWithEmployer>
+                            <PhoneNumber>
+                                <AreaCode>808</AreaCode>
+                                <CentralOfficeCode>893</CentralOfficeCode>
+                                <LineNumber>4567</LineNumber>
+                            </PhoneNumber>
                             </Employer>
                         </Occupation>
-                    </Applicant>
-                </Applicants>
-            </LoanApplication>";
+                        </Applicant>
+                    </Applicants>
+                    <CombinedFinancials>
+                        <MonthlyHousingCosts>1150</MonthlyHousingCosts>
+                        <OtherAnnualIncome source=\"Alimony\">36000.00</OtherAnnualIncome>
+                    </CombinedFinancials>
+                </LoanApplication>
+        ";
         return $xml;
     }
 
@@ -90,8 +91,8 @@ class LoanApplication
                 'X-Lightstream-TestMode' => 'True',
             ))
             ->body($this->buildBody())
+            ->expectsXml()
             ->send();
-        dd($response->body->ApplicationPostProcessingResults->ApplicationPostStatus, $response->body->ApplicationPostProcessingResults->Stipulations);
-        echo 'The Dead Weather has ' . count($response->body->result->album) . " albums.\n";
+        dd($response->body->ApplicationPostStatus, $response->body->Stipulations, $response->body);
     }
 }
