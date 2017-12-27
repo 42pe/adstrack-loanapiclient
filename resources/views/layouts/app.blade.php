@@ -179,7 +179,31 @@ body {
                     </p>
                 </div>
             </div>
-            @yield('content')
+			<span class="errMsg" id="errMsg"></span>
+
+			<div class="m-4 alert alert-danger collapse" role="alert">
+				<button type="button" class="close" data-hide="alert" aria-label="Close"> <span aria-hidden="true"><i class="fa fa-close"></i></span> </button>
+				<strong>Something went wrong!</strong> Please ensure all required fields are filled out!
+			</div>
+
+			<div class="mb-4">
+            	@yield('content')
+
+				<div class="row">
+					<div id="bottom-1" rol="tabpanel" class="tab-pane active pt-5 col-lg-12">
+						<div class="row ">
+							<div class="col-md-12 d-flex ">
+							<ul class="list-inline  mx-auto justify-content-center">
+								<li class="list-inline-item pr-md-5 mr-md-5 copyt text-sm"><i class="fa fa-clock-o fa-3x align-middle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="">Same day <span class="red">approval</span></span></li>
+								<li class="list-inline-item pr-md-5 mr-md-5 copyt"><i class="fa fa-thumbs-up fa-3x  align-middle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; <span class="">Guaranteed <span class="red">Lowest</span> Rates</span></li>
+								<li class="list-inline-item copyt"><i class="fa fa-3x fa-star-o  align-middle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="">Fast & <span class="red">Simple</span> Process</span></li>
+							</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
         </div>
         <footer class="footer">
             <div class="container">
