@@ -10,80 +10,35 @@ class LoanApplication
 
     private function buildBody()
     {
-        $applicationId      = time();
-        $driversLicense     = substr($this->data['applicants'][0]['DriversLicense'], -4, 4);
-        $purposeDescription = ($this->data['LoanPurpose'] == 'Other') ? $this->data['LoanPurposeDescription'] : '';
-        $middleInitial      = substr($this->data['applicants'][0]['MiddleInitial'], 0, 1);
-        $dateOfBirth        = (new \DateTime($this->data['applicants'][0]['DateOfBirth']))->format('Y-m-d');
+        $applicationId = time();
+        $dateOfBirth   = (new \DateTime($this->data['applicants'][0]['DateOfBirth']))->format('Y-m-d');
 
-        $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
+        $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                 <LoanApplication>
-                    <LoanApplicationType>{$this->data['ApplicationType']}</LoanApplicationType>
-                    <LoanPrimaryPurpose descriptionIfOther=\"$purposeDescription\">
-                        {$this->data['LoanPurpose']}
-                    </LoanPrimaryPurpose>
+                    <LoanApplicationType>Individual</LoanApplicationType>
+                    <LoanPrimaryPurpose>{$this->data['LoanPurpose']}</LoanPrimaryPurpose>
                     <LoanAmount>{$this->data['LoanAmount']}</LoanAmount>
                     <LoanTermMonths>{$this->data['LoanTerm']}</LoanTermMonths>
-                    <LoanPaymentType>{$this->data['PaymentType']}</LoanPaymentType>
                     <ApplicationId>$applicationId</ApplicationId>
                     <Applicants>
                         <Applicant type=\"Primary\">
-                        <FirstName>{$this->data['applicants'][0]['FirstName']}</FirstName>
-                        <MiddleInitial>$middleInitial</MiddleInitial>
-                        <LastName>{$this->data['applicants'][0]['LastName']}</LastName>
-                        <SocialSecurityNumber>{$this->data['applicants'][0]['SocialSecurityNumber']}</SocialSecurityNumber>
-                        <DateOfBirth>$dateOfBirth</DateOfBirth>
-                        <EmailAddress>{$this->data['applicants'][0]['EmailAddress']}</EmailAddress>
-                        <DriversLicenseLastFourDigits>$driversLicense</DriversLicenseLastFourDigits>
-                        <Residence ownership=\"{$this->data['applicants'][0]['HousingStatus']}\">
-                            <Address>
-                                <AddressLine>{$this->data['applicants'][0]['AddressLine']}</AddressLine>
-                                <City>{$this->data['applicants'][0]['City']}</City>
-                                <State>{$this->data['applicants'][0]['State']}</State>
-                                <ZipCode>
-                                    <FiveDigitZipCode>{$this->data['applicants'][0]['ZipCode']}</FiveDigitZipCode>
-                                </ZipCode>
-                            </Address>
-                            <TimeAtAddress>
-                                <Months>1</Months>
-                                <Years>{$this->data['applicants'][0]['TimeAtAddress']}</Years>
-                            </TimeAtAddress>
-                            <PhoneNumber>
-                                <AreaCode>{$this->data['applicants'][0]['PhoneNumber'][0]}</AreaCode>
-                                <CentralOfficeCode>{$this->data['applicants'][0]['PhoneNumber'][1]}</CentralOfficeCode>
-                                <LineNumber>{$this->data['applicants'][0]['PhoneNumber'][2]}</LineNumber>
-                            </PhoneNumber>
-                        </Residence>
-                        <Occupation type=\"{$this->data['employment'][0]['WorkStatus']}\">
-                            <OccupationDescription>{$this->data['employment'][0]['OcupationDescription']}</OccupationDescription>
-                            <GrossAnnualIncome>{$this->data['employment'][0]['GrossAnnualIncome']}</GrossAnnualIncome>
-                            <Employer>
-                                <EmployerName>{$this->data['employment'][0]['EmployerName']}</EmployerName>
+                                <FirstName>{$this->data['applicants'][0]['FirstName']}</FirstName>
+                                <LastName>{$this->data['applicants'][0]['LastName']}</LastName>
+                                <SocialSecurityNumber>{$this->data['applicants'][0]['SocialSecurityNumber']}</SocialSecurityNumber>
+                                <DateOfBirth>$dateOfBirth</DateOfBirth>
+                                <EmailAddress>{$this->data['applicants'][0]['EmailAddress']}</EmailAddress>
+                                <Residence ownership=\"{$this->data['applicants'][0]['HousingStatus']}\">
                                 <Address>
-                                    <AddressLine>{$this->data['employment'][0]['AddressLine']}</AddressLine>
-                                    <City>{$this->data['employment'][0]['City']}</City>
-                                    <State>{$this->data['employment'][0]['State']}</State>
+                                    <AddressLine>{$this->data['applicants'][0]['AddressLine']}</AddressLine>
+                                    <City>{$this->data['applicants'][0]['City']}</City>
+                                    <State>{$this->data['applicants'][0]['State']}</State>
                                     <ZipCode>
-                                        <FiveDigitZipCode>{$this->data['employment'][0]['ZipCode']}</FiveDigitZipCode>
+                                        <FiveDigitZipCode>{$this->data['applicants'][0]['ZipCode']}</FiveDigitZipCode>
                                     </ZipCode>
                                 </Address>
-                                <TimeWithEmployer>
-                                    <Months>1</Months>
-                                    <Years>{$this->data['employment'][0]['TimeAtAddress']}</Years>
-                                </TimeWithEmployer>
-                                <PhoneNumber>
-                                    <AreaCode>{$this->data['employment'][0]['PhoneNumber'][0]}</AreaCode>
-                                    <CentralOfficeCode>{$this->data['employment'][0]['PhoneNumber'][1]}</CentralOfficeCode>
-                                    <LineNumber>{$this->data['employment'][0]['PhoneNumber'][2]}</LineNumber>
-                                </PhoneNumber>
-                            </Employer>
-                        </Occupation>
+                            </Residence>
                         </Applicant>
                     </Applicants>
-                    <CombinedFinancials>
-                        <MonthlyHousingCosts>{$this->data['financial'][0]['EstimatedMonthlyHousingCosts']}</MonthlyHousingCosts>
-                        <OtherAnnualIncome source=\"Alimony\">{$this->data['financial'][0]['OtherAnnualIncome']}</OtherAnnualIncome>
-                    </CombinedFinancials>
                 </LoanApplication>
         ";
         return $xml;
