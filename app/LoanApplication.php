@@ -57,11 +57,18 @@ class LoanApplication
             ->addHeaders(array(
                 'Content-type'           => 'application/xml',
                 'X-Lightstream-ApiKey'   => '18ef2dde-a502-48fe-8a72-6de365cb801c',
-                'X-Lightstream-TestMode' => 'True',
+                // 'X-Lightstream-TestMode' => 'True',
             ))
             ->body($this->buildBody())
             ->expectsXml()
             ->send();
-        dd($response->body->ApplicationPostStatus, $response->body->Stipulations, $response->body);
+
+        $message = [
+            'approved' => ($response->body->ApplicationPostStatus == 'Success'),
+            'status'   => $response->body->ApplicationPostStatus,
+            'link'     => $response->body->RedirectUrl,
+            'message'  => $response->body->Stipulations
+        ];
+        return $message;
     }
 }
