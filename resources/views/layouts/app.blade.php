@@ -124,42 +124,25 @@ li.copyt {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color:rgba(0,62,126, 0.8)
 }
-	a{color:rgba(0,62,126, 0.8)}
+a{color:rgba(0,62,126, 0.8)}
+
+
+#bottom-2 p{color:white}
+
 @media (min-width: 576px) {
-body {
-	background-color: red
-}
-.myBg {
-	background-position: -0px;
-}
-.myBlue {
-	opacity: 1;
-	z-index: 1
-}
-form#LoanApplication, .col-form-label, .form-control {
-	opacity: 1;
-	z-index: 9999
-}
-}
-@media (min-width: 768px) {
-body {
-	background-color: green
-}
-}
- @media (min-width: 992px) {
-body {
-	background-color: blue
-}
-}
- @media (min-width: 1200px) {
-body {
-	background-color: #faf9f9
-}
+	.myBg {
+		background-position: -0px;
+	}
+	.myBlue {
+		opacity: 1;
+		z-index: 1
+	}
+	form#LoanApplication, .col-form-label, .form-control {
+		opacity: 1;
+		z-index: 9999
+	}
 }
 
-
-
-	#bottom-2 p{color:white}
 </style>
 
 

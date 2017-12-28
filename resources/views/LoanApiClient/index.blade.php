@@ -34,25 +34,26 @@
                         <div role="tabpanel" class="tab-pane p-2 active">
                             <h5>Loan Information</h5>
                             <hr/>
-                            <div class="form-group">
-                                <label class="col-form-label">Type of Loan</label>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Type of Loan</label>
+                                <div class="col pt-2">
+                                    <input type="radio" name="data[ApplicationType]" id="ApplicationType" value="Individual" required checked />
+                                    <span class="white">Individual&nbsp;</span>
 
-                                <input type="radio" name="data[ApplicationType]" id="ApplicationType" value="Individual" required checked />
-                                <span class="white">Individual&nbsp;</span>
-
-                                <input type="radio" name="data[ApplicationType]" id="ApplicationType" value="Joint" required />
-                                <span class="white">Joint</span>
+                                    <input type="radio" name="data[ApplicationType]" id="ApplicationType" value="Joint" required />
+                                    <span class="white">Joint</span>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Loan Purpose</label>
-                                <select class="form-control" name="data[LoanPurpose]" required>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Loan Purpose</label>
+                                <select class="form-control col" name="data[LoanPurpose]" required>
                                     <option value="HomeImprovement">Home Improvement</option>
                                     <option value="NewAutoPurchase">New Auto Purchase</option>
                                     <option value="UsedAutoPurchase">Used Auto Purchase</option>
                                     <option value="AutoRefinancing">Auto Refinancing</option>
                                     <option value="LeaseBuyOut">Lease Buyout</option>
                                     <option value="PrivatePartyPurchase">Private Party Purchase</option>
-                                    <option value="BoatRvPurcahse">Boat or RV Purchase</option>
+                                    <option value="BoatRvPurchase">Boat or RV Purchase</option>
                                     <option value="MotorcyclePurchase">Motorcycle Purchase</option>
                                     <option value="TimeSharePurchase">Timeshare Purchase</option>
                                     <option value="EducationalExpenses">Educational Expense</option>
@@ -62,13 +63,13 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Loan Purpose Description</label>
-                                <input type="text"  class="form-control" name="data[LoanPurposeDescription]" />
+                            <div class="form-group row" id="purposeOther">
+                                <label class="col-form-label col-5">Loan Purpose Description</label>
+                                <input type="text" class="form-control col" name="data[LoanPurposeDescription]" placeholder="Only if other purpose." />
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Loan Amount</label>
-                                <select name="data[LoanAmount]" class="form-control">
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Loan Amount</label>
+                                <select name="data[LoanAmount]" class="form-control col">
                                     <option value="5000">$5,000</option>
                                     <option value="10000">$10,000</option>
                                     <option value="20000">$20,000</option>
@@ -82,9 +83,9 @@
                                     <option value="100000">$100,000</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Loan Term</label>
-                                <select name="data[LoanTerm]" class="form-control">
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Loan Term</label>
+                                <select name="data[LoanTerm]" class="form-control col">
                                     <option value="12">12 months</option>
                                     <option value="24">24 months</option>
                                     <option value="36">36 months</option>
@@ -93,9 +94,9 @@
                                     <option value="72">72 months</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">How do you want to pay?</label>
-                                <select name="data[PaymentType]" class="form-control" required>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">How do you want to pay?</label>
+                                <select name="data[PaymentType]" class="form-control col" required>
                                     <option value="AutoPay">AutoPay</option>
                                     <option value="Invoice">Invoice</option>
                                 </select>
@@ -106,141 +107,134 @@
                         <!-- Step #2 -->
                         <div role="tabpanel" class="tab-pane p-2">
                             <h5>Applicant Information</h5>
-                            <div class="form-group">
-                                <label class="col-form-label">First Name</label>
-                                <input type="text" class="form-control" name="data[applicants][0][FirstName]" required>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">First Name</label>
+                                <input type="text" class="form-control col" name="data[applicants][0][FirstName]" required>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Middle Initial</label>
-                                <input type="text" class="form-control" name="data[applicants][0][MiddleInitial]" required>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Middle Initial</label>
+                                <input type="text" class="form-control col-1" name="data[applicants][0][MiddleInitial]" required maxlength="1" style="width: 1em;">
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Last Name</label>
-                                <input name="data[applicants][0][LastName]" class="form-control" required  />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Last Name</label>
+                                <input type="text" name="data[applicants][0][LastName]" class="form-control col" required  />
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Email Address</label>
-                                <input type="email" class="form-control" name="data[applicants][0][EmailAddress]" required />
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-form-label">Home Street Address</label>
-                                <input type="text" name="data[applicants][0][AddressLine]" class="form-control" required />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Email Address</label>
+                                <input type="email" class="form-control col" name="data[applicants][0][EmailAddress]" required />
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Unit / Unit #</label>
-                                <input type="text" name="data[applicants][0][Unit]" class="form-control" required />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Home Street Address</label>
+                                <input type="text" name="data[applicants][0][AddressLine]" class="form-control col" required />
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-form-label">City</label>
-                                <input name="data[applicants][0][City]" class="form-control" required />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">City</label>
+                                <input name="data[applicants][0][City]" class="form-control col" required />
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">State</label>
-                                <select name="data[applicants][0][State]"  class="form-control" required >
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">State</label>
+                                <select name="data[applicants][0][State]"  class="form-control col" required >
                                     <option value="">Not Selected</option>
-                                        <option value="AL">Alabama</option>
-                                        <option value="AK">Alaska</option>
-                                        <option value="AZ">Arizona</option>
-                                        <option value="AR">Arkansas</option>
-                                        <option value="CA">California</option>
-                                        <option value="CO">Colorado</option>
-                                        <option value="CT">Connecticut</option>
-                                        <option value="DE">Delaware</option>
-                                        <option value="DC">District Of Columbia</option>
-                                        <option value="FL">Florida</option>
-                                        <option value="GA">Georgia</option>
-                                        <option value="HI">Hawaii</option>
-                                        <option value="ID">Idaho</option>
-                                        <option value="IL">Illinois</option>
-                                        <option value="IN">Indiana</option>
-                                        <option value="IA">Iowa</option>
-                                        <option value="KS">Kansas</option>
-                                        <option value="KY">Kentucky</option>
-                                        <option value="LA">Louisiana</option>
-                                        <option value="ME">Maine</option>
-                                        <option value="MD">Maryland</option>
-                                        <option value="MA">Massachusetts</option>
-                                        <option value="MI">Michigan</option>
-                                        <option value="MN">Minnesota</option>
-                                        <option value="MS">Mississippi</option>
-                                        <option value="MO">Missouri</option>
-                                        <option value="MT">Montana</option>
-                                        <option value="NE">Nebraska</option>
-                                        <option value="NV">Nevada</option>
-                                        <option value="NH">New Hampshire</option>
-                                        <option value="NJ">New Jersey</option>
-                                        <option value="NM">New Mexico</option>
-                                        <option value="NY">New York</option>
-                                        <option value="NC">North Carolina</option>
-                                        <option value="ND">North Dakota</option>
-                                        <option value="OH">Ohio</option>
-                                        <option value="OK">Oklahoma</option>
-                                        <option value="OR">Oregon</option>
-                                        <option value="PA">Pennsylvania</option>
-                                        <option value="RI">Rhode Island</option>
-                                        <option value="SC">South Carolina</option>
-                                        <option value="SD">South Dakota</option>
-                                        <option value="TN">Tennessee</option>
-                                        <option value="TX">Texas</option>
-                                        <option value="UT">Utah</option>
-                                        <option value="VT">Vermont</option>
-                                        <option value="VA">Virginia</option>
-                                        <option value="WA">Washington</option>
-                                        <option value="WV">West Virginia</option>
-                                        <option value="WI">Wisconsin</option>
-                                        <option value="WY">Wyoming</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Zip Code</label>
-                                <input type="text" class="form-control" name="data[applicants][0][ZipCode]" required />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Zip Code</label>
+                                <input type="number" class="form-control col-2" name="data[applicants][0][ZipCode]" required maxlength="5" minlength="5" />
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Primary Phone</label>
-                                <div class="input-group">
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Primary Phone</label>
+                                <div class="input-group col p-0">
                                     <span class="input-group-addon"> ( </span>
-                                    <input type="tel" name="data[applicants][0][PhoneNumber][0]" class="form-control col-sm-3 text-center" placeholder="555" />
+                                    <input type="number" name="data[applicants][0][PhoneNumber][0]" class="form-control text-center" placeholder="555" maxlength="3" />
                                     <span class="input-group-addon"> ) </span>
-                                    <input type="tel" name="data[applicants][0][PhoneNumber][1]" class="form-control col-sm-3 text-center" placeholder="123" />
+                                    <input type="number" name="data[applicants][0][PhoneNumber][1]" class="form-control text-center" placeholder="123" maxlength="3" />
                                     <span class="input-group-addon"> - </span>
-                                    <input type="tel" name="data[applicants][0][PhoneNumber][2]" class="form-control col-sm-4 text-center" placeholder="4567" />
+                                    <input type="text" name="data[applicants][0][PhoneNumber][2]" class="form-control text-center" placeholder="4567" maxlength="4" />
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Years At Address</label>
-                                <select class="form-control" name="data[applicants][0][TimeAtAddress]" required>
-                                    <?php for($i = 1; $i <= 50; $i++) :?>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Years At Address</label>
+                                <select class="form-control col" name="data[applicants][0][TimeAtAddress]" required>
+                                    <option value="1">1 year or less</option>
+                                    <?php for($i = 2; $i <= 50; $i++) :?>
                                         <option value="{{ $i }}">{{ $i }} years</option>
                                     <?php endfor ?>
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Own or Rent?</label>
-                                <div class="">
-                                    <select name="data[applicants][0][HousingStatus]" class="form-control" required>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Own or Rent?</label>
+                                <select name="data[applicants][0][HousingStatus]" class="form-control col" required>
                                     <option value="">Not Selected</option>
                                     <option value="Rent">Rent</option>
                                     <option value="Own">Own</option>
-                                    </select>
-                                </div>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Social Security #</label>
-                                <input type="text" class="form-control" name="data[applicants][0][SocialSecurityNumber]" required  />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Social Security #</label>
+                                <input type="number" class="form-control col" name="data[applicants][0][SocialSecurityNumber]" required maxlength="9" minlength="9" />
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Date of Birth</label>
-                                <input type="date" class="form-control" name="data[applicants][0][DateOfBirth]" required  />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Date of Birth</label>
+                                <input type="date" class="form-control col" name="data[applicants][0][DateOfBirth]" required  />
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Driver's License</label>
-                                <input type="text" class="form-control" name="data[applicants][0][DriversLicense]" required  />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Driver's License</label>
+                                <input type="text" class="form-control col" name="data[applicants][0][DriversLicense]" required  />
                             </div>
                         </div>
 
@@ -248,53 +242,39 @@
                         <!-- Step #3 -->
                         <div role="tabpanel" class="tab-pane p-2">
                             <h5>Employment Information</h5>
-                            <div class="form-group">
-                                <label class="col-form-label">Work status</label>
-                                <select class="form-control" name="data[employment][0][WorkStatus]">
-                                    <option value="Full Time">Full Time</option>
-                                    <option value="Part Time">Part Time</option>
-                                    <option value="Unemployed">Unemployed</option>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Work status</label>
+                                <select class="form-control col" name="data[employment][0][WorkStatus]">
+                                    <option value="EmployedByOther">Employed By Other</option>
+                                    <option value="EmployedBySelf">Employed By Self</option>
                                     <option value="Retired">Retired</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Homemaker">Homemaker</option>
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Occupation Description</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[employment][0][OcupationDescription]" />
-                                </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Occupation Description</label>
+                                <input type="text" class="form-control col" name="data[employment][0][OcupationDescription]" />
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Employer Name</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[employment][0][EmployerName]" />
-                                </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Employer Name</label>
+                                <input type="text" class="form-control col" name="data[employment][0][EmployerName]" />
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Emplyer Street Address</label>
-                                <div class="">
-                                    <input type="text" name="data[employment][0][AddressLine]" class="form-control" />
-                                </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Employer Street Address</label>
+                                <input type="text" name="data[employment][0][AddressLine]" class="form-control col" />
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Emplyer Unit / Unit #</label>
-                                <div class="">
-                                    <input type="text" name="data[employment][0][Unit]" class="form-control" />
-                                </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Employer City</label>
+                                <input name="data[employment][0][City]" class="form-control col" />
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-form-label">Emplyer City</label>
-                                <div class="">
-                                    <input name="data[employment][0][City]" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Emplyer State</label>
-                                <select name="data[employment][0][State]"  class="form-control" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Employer State</label>
+                                <select name="data[employment][0][State]"  class="form-control col" />
                                     <option value="">Not Selected</option>
                                         <option value="AL">Alabama</option>
                                         <option value="AK">Alaska</option>
@@ -350,37 +330,36 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Emplyer Zip Code</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[employment][0][ZipCode]" />
-                                </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Employer Zip Code</label>
+                                <input type="number" class="form-control col-2" name="data[employment][0][ZipCode]" required maxlength="5" minlength="5" />
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Emplyer Phone</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"> ( </span>
-                                    <input type="tel" name="data[employment][0][PhoneNumber][0]" class="form-control col-sm-3 text-center" placeholder="555" />
-                                    <span class="input-group-addon"> ) </span>
-                                    <input type="tel" name="data[employment][0][PhoneNumber][1]" class="form-control col-sm-3 text-center" placeholder="123" />
-                                    <span class="input-group-addon"> - </span>
-                                    <input type="tel" name="data[employment][0][PhoneNumber][2]" class="form-control col-sm-4 text-center" placeholder="4567" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Employer Phone</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">(</span>
+                                    <input type="number" name="data[employment][0][PhoneNumber][0]" class="form-control text-center" placeholder="555" maxlength="3" />
+                                    <span class="input-group-addon">)</span>
+                                    <input type="number" name="data[employment][0][PhoneNumber][1]" class="form-control text-center" placeholder="123" maxlength="3" />
+                                    <span class="input-group-addon">-</span>
+                                    <input type="text" name="data[employment][0][PhoneNumber][2]" class="form-control text-center" placeholder="4567" maxlength="4" />
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Time at Employer</label>
-                                <div class="">
-                                    <select class="form-control" name="data[employment][0][TimeAtAddress]" required>
-                                        <?php for($i = 1; $i <= 50; $i++) :?>
-                                            <option value="{{ $i }}">{{ $i }} years</option>
-                                        <?php endfor ?>
-                                    </select>
-                                </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Time at Employer</label>
+                                <select class="form-control col" name="data[employment][0][TimeAtAddress]" required>
+                                    <?php for($i = 1; $i <= 50; $i++) :?>
+                                        <option value="{{ $i }}">{{ $i }} years</option>
+                                    <?php endfor ?>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Gross Annual Income</label>
-                                <input type="text" class="form-control" name="data[employment][0][GrossAnnualIncome]" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Gross Annual Income</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control text-right" name="data[employment][0][GrossAnnualIncome]" />
+                                </div>
                             </div>
                         </div>
 
@@ -389,40 +368,46 @@
                         <div role="tabpanel" class="tab-pane p-2">
                             <h5>Financial Information</h5>
 
-                            <div class="form-group">
-                                <label class="col-form-label">Other Annual Income</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[financial][0][OtherAnnualIncome]" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Other Annual Income</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control text-right" name="data[financial][0][OtherAnnualIncome]" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Source of Other Annual Income</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[financial][0][SourceOfOtherAnnualIncome]" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Source of Other Annual Income</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control text-right" name="data[financial][0][SourceOfOtherAnnualIncome]" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Estimated Monthly Housing Costs</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[financial][0][EstimatedMonthlyHousingCosts]" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Estimated Monthly Housing Costs</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control text-right" name="data[financial][0][EstimatedMonthlyHousingCosts]" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Estimated Home Equity</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[financial][0][EstimatedHomeEquity]" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Estimated Home Equity</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control text-right" name="data[financial][0][EstimatedHomeEquity]" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Liquid Assets</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[financial][0][LiquidAssets]" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Liquid Assets</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control text-right" name="data[financial][0][LiquidAssets]" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Retirement Assets</label>
-                                <div class="">
-                                    <input type="text" class="form-control" name="data[financial][0][RetirementAssets]" />
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Retirement Assets</label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" class="form-control text-right" name="data[financial][0][RetirementAssets]" />
                                 </div>
                             </div>
                         </div>

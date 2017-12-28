@@ -96,6 +96,14 @@ $(document).ready(function() {
         $('.alert').alert('hide');
     });
 
+    $('[name="data[LoanPurpose]"]').on('change', function() {
+        if ($(this).val() == 'Other') {
+            $('#purposeOther').show();
+        } else {
+            $('#purposeOther').hide();
+        }
+    }).change();
+
     //use link to submit form instead of button
     $("a[id=submit]").click(function() {
         $(this).parents("form").submit();

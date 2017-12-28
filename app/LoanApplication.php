@@ -1,18 +1,25 @@
 <?php
 namespace App;
 
+use Faker\Provider\DateTime;
+
+
 class LoanApplication
 {
     private $data = [];
 
     private function buildBody()
     {
-        $applicationId = time();
-        $driversLicense = substr($this->data['applicants'][0]['DriversLicense'], -4, 4);
+        $applicationId      = time();
+        $driversLicense     = substr($this->data['applicants'][0]['DriversLicense'], -4, 4);
+        $purposeDescription = ($this->data['LoanPurpose'] == 'Other') ? $this->data['LoanPurposeDescription'] : '';
+        $middleInitial      = substr($this->data['applicants'][0]['MiddleInitial'], 0, 1);
+        $dateOfBirth        = (new \DateTime($this->data['applicants'][0]['DateOfBirth']))->format('Y-m-d');
+
         $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
                 <LoanApplication>
                     <LoanApplicationType>{$this->data['ApplicationType']}</LoanApplicationType>
-                    <LoanPrimaryPurpose descriptionIfOther=\"{$this->data['LoanPurposeDescription']}\">
+                    <LoanPrimaryPurpose descriptionIfOther=\"$purposeDescription\">
                         {$this->data['LoanPurpose']}
                     </LoanPrimaryPurpose>
                     <LoanAmount>{$this->data['LoanAmount']}</LoanAmount>
@@ -22,16 +29,15 @@ class LoanApplication
                     <Applicants>
                         <Applicant type=\"Primary\">
                         <FirstName>{$this->data['applicants'][0]['FirstName']}</FirstName>
-                        <MiddleInitial>{$this->data['applicants'][0]['MiddleInitial']}</MiddleInitial>
+                        <MiddleInitial>$middleInitial</MiddleInitial>
                         <LastName>{$this->data['applicants'][0]['LastName']}</LastName>
                         <SocialSecurityNumber>{$this->data['applicants'][0]['SocialSecurityNumber']}</SocialSecurityNumber>
-                        <DateOfBirth>{$this->data['applicants'][0]['DateOfBirth']}</DateOfBirth>
+                        <DateOfBirth>$dateOfBirth</DateOfBirth>
                         <EmailAddress>{$this->data['applicants'][0]['EmailAddress']}</EmailAddress>
                         <DriversLicenseLastFourDigits>$driversLicense</DriversLicenseLastFourDigits>
                         <Residence ownership=\"{$this->data['applicants'][0]['HousingStatus']}\">
                             <Address>
                                 <AddressLine>{$this->data['applicants'][0]['AddressLine']}</AddressLine>
-                                <SecondaryUnit type=\"Apartment\" />
                                 <City>{$this->data['applicants'][0]['City']}</City>
                                 <State>{$this->data['applicants'][0]['State']}</State>
                                 <ZipCode>
@@ -39,7 +45,7 @@ class LoanApplication
                                 </ZipCode>
                             </Address>
                             <TimeAtAddress>
-                                <Months>0</Months>
+                                <Months>1</Months>
                                 <Years>{$this->data['applicants'][0]['TimeAtAddress']}</Years>
                             </TimeAtAddress>
                             <PhoneNumber>
@@ -55,7 +61,6 @@ class LoanApplication
                                 <EmployerName>{$this->data['employment'][0]['EmployerName']}</EmployerName>
                                 <Address>
                                     <AddressLine>{$this->data['employment'][0]['AddressLine']}</AddressLine>
-                                    <SecondaryUnit type=\"Suite\">{$this->data['employment'][0]['Unit']}</SecondaryUnit>
                                     <City>{$this->data['employment'][0]['City']}</City>
                                     <State>{$this->data['employment'][0]['State']}</State>
                                     <ZipCode>
@@ -63,7 +68,7 @@ class LoanApplication
                                     </ZipCode>
                                 </Address>
                                 <TimeWithEmployer>
-                                    <Months>0</Months>
+                                    <Months>1</Months>
                                     <Years>{$this->data['employment'][0]['TimeAtAddress']}</Years>
                                 </TimeWithEmployer>
                                 <PhoneNumber>
