@@ -23,7 +23,6 @@
 	background-color: #faf9f9;
 }
 .myBlue {
-	font-weight: 700;
 	background: rgba(0,62,126, 0.8);
 	min-height: 500px;
 	position: relative;
@@ -114,7 +113,7 @@ form {
 label {
 	display: block;
 }
-	label.error{color:red;}
+label.error{color:red;}
 .text-primary {
 	color: rgba(0,62,126, 0.8);
 }

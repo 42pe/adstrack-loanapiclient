@@ -67,7 +67,7 @@ class LoanApplication
             'approved' => ($response->body->ApplicationPostStatus == 'Success'),
             'status'   => $response->body->ApplicationPostStatus,
             'link'     => $response->body->RedirectUrl,
-            'message'  => $response->body->Stipulations
+            'message'  => $response->body->Stipulations->string,
         ];
         return $message;
     }
