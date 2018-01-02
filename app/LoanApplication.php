@@ -16,7 +16,7 @@ class LoanApplication
         $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                 <LoanApplication>
                     <LoanApplicationType>Individual</LoanApplicationType>
-                    <LoanPrimaryPurpose>{$this->data['LoanPurpose']}</LoanPrimaryPurpose>
+                    <LoanPrimaryPurpose>HomeImprovement</LoanPrimaryPurpose>
                     <LoanAmount>{$this->data['LoanAmount']}</LoanAmount>
                     <LoanTermMonths>{$this->data['LoanTerm']}</LoanTermMonths>
                     <ApplicationId>$applicationId</ApplicationId>

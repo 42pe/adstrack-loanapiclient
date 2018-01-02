@@ -13,19 +13,7 @@
                     {{ csrf_field() }}
                     <div id="bottom-2" role="tabpanel" class="tab-pane active p-2 collapse">
 
-                        <div class="small mt-1">
-                            <p class="text-justify">
-                            <input type="checkbox" name="data[MarketingOptIn]" required />
-                            &nbsp;&nbsp;&nbsp;By clicking the “Get Your Results” button and submitting my information, I hereby consent to receiving email, SMS or other marketing communications from (Company), and its trusted partners and third party finders / aggregators working on behalf of lenders. I understand that my consent to receive calls is not required in order to purchase any goods or services. If you don’t want to receive any marketing communications, just un-tick the box.”</p>
-                            <hr />
-                            <p class="text-justify">
-                            <input type="checkbox" name="data[MarketingOptIn]" required/>
-                            &nbsp;&nbsp;&nbsp;By clicking the “Get Your Results” button and submitting my information, I hereby confirm that I understand and agree to the Terms & Conditions, Privacy Policy and the E-Consent, and I understand, agree, and authorize under the Fair Credit Reporting Act that (1) my information may be sent to lending partners, and third party finders / aggregators working on behalf of lenders, on my behalf to complete my request, and (2) that such lending partners, and third party finders / aggregators working on behalf of lenders may obtain consumer reports and related information about me from one or more consumer reporting agencies, such as TransUnion, Experian and Equifax. I hereby agree to receive calls about loans (which calls may be auto-dialed, use artificial or pre-recorded voices, and/or be text messages) from these companies and their agents to the telephone number(s) I’ve provided.</p>
-                        </div>
 
-                        <div class="align-middle text-center">
-                            <button id="getresults" class="btn btn-primary text-center" type="submit">Get Your Results</button>
-                        </div>
                     </div>
 
                     <div id="myTabs" class="tab-content">
@@ -37,28 +25,18 @@
                                 <span class="step-subtitle">Loan Information</span>
                             </h5>
                             <hr/>
+
                             <div class="form-group row">
-                                <label class="col-form-label col-5">Loan Purpose</label>
-                                <select class="form-control col" name="data[LoanPurpose]" required>
-                                    <option value="HomeImprovement">Home Improvement</option>
-                                    <option value="NewAutoPurchase">New Auto Purchase</option>
-                                    <option value="UsedAutoPurchase">Used Auto Purchase</option>
-                                    <option value="AutoRefinancing">Auto Refinancing</option>
-                                    <option value="LeaseBuyOut">Lease Buyout</option>
-                                    <option value="PrivatePartyPurchase">Private Party Purchase</option>
-                                    <option value="BoatRvPurchase">Boat or RV Purchase</option>
-                                    <option value="MotorcyclePurchase">Motorcycle Purchase</option>
-                                    <option value="TimeSharePurchase">Timeshare Purchase</option>
-                                    <option value="EducationalExpenses">Educational Expense</option>
-                                    <option value="MedicalExpense">Medical Expense</option>
-                                    <option value="CreditCardConsolidation">Credit Card Consolidation</option>
+                                <label class="col-form-label col-5">House Own or Rent?</label>
+                                <select name="data[applicants][0][HousingStatus]" class="form-control col" required>
+                                    <option value="Own">Own</option>
+                                    <option value="Rent">Rent</option>
                                 </select>
                             </div>
+
                             <div class="form-group row">
                                 <label class="col-form-label col-5">Loan Amount</label>
                                 <select name="data[LoanAmount]" class="form-control col">
-                                    <option value="5000">$5,000</option>
-                                    <option value="10000">$10,000</option>
                                     <option value="20000">$20,000</option>
                                     <option value="30000">$30,000</option>
                                     <option value="40000">$40,000</option>
@@ -68,6 +46,11 @@
                                     <option value="80000">$80,000</option>
                                     <option value="90000">$90,000</option>
                                     <option value="100000">$100,000</option>
+                                    <option value="110000">$110,000</option>
+                                    <option value="120000">$120,000</option>
+                                    <option value="130000">$130,000</option>
+                                    <option value="140000">$140,000</option>
+                                    <option value="150000">$150,000</option>
                                 </select>
                             </div>
                             <div class="form-group row">
@@ -81,6 +64,18 @@
                                     <option value="72">72 months</option>
                                 </select>
                             </div>
+
+                            <!--buttons-->
+                            <div class="row " >
+                                <div class="col-lg-12 bottom mb-1 pr-3">
+                                    <button type="button" class="btn btn-primary btn-lg next-step float-right m-2">
+                                        Next
+                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--buttons-->
+
                         </div>
 
                         <!-- Step #2 -->
@@ -171,14 +166,6 @@
                                 <label class="col-form-label col-5">Zip Code</label>
                                 <input type="number" class="form-control col-2" name="data[applicants][0][ZipCode]" required maxlength="5" minlength="5" />
                             </div>
-
-                            <div class="form-group row">
-                                <label class="col-form-label col-5">Own or Rent?</label>
-                                <select name="data[applicants][0][HousingStatus]" class="form-control col" required>
-                                    <option value="Own">Own</option>
-                                    <option value="Rent">Rent</option>
-                                </select>
-                            </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-5">
                                     Social Security #
@@ -197,6 +184,29 @@
                                 <label class="col-form-label col-5">Date of Birth</label>
                                 <input type="date" class="form-control col" name="data[applicants][0][DateOfBirth]" required  />
                             </div>
+
+
+                            <div class="from-grop row m-4 small">
+                                <div class="form-check row">
+                                    <input type="checkbox" class="form-check-input col-1" name="data[MarketingOptIn]"  id="data[MarketingOptIn]"required />
+                                    <label class="form-check-label small" for="data[MarketingOptIn]">
+                                        By clicking the “Get Your Results” button and submitting my information, I hereby consent to receiving email, SMS or other marketing communications from (Company), and its trusted partners and third party finders / aggregators working on behalf of lenders. I understand that my consent to receive calls is not required in order to purchase any goods or services. If you don’t want to receive any marketing communications, just un-tick the box.”
+                                    </label>
+                                </div>
+
+                                <div class="form-check row">
+                                    <input type="checkbox" class="form-check-input col-1" name="data[terms]" id="data[terms]" required checked="checked" />
+                                    <label class="form-check-label small" for="data[terms]">
+                                        By clicking the “Get Your Results” button and submitting my information, I hereby confirm that I understand and agree to the Terms & Conditions, Privacy Policy and the E-Consent, and I understand, agree, and authorize under the Fair Credit Reporting Act that (1) my information may be sent to lending partners, and third party finders / aggregators working on behalf of lenders, on my behalf to complete my request, and (2) that such lending partners, and third party finders / aggregators working on behalf of lenders may obtain consumer reports and related information about me from one or more consumer reporting agencies, such as TransUnion, Experian and Equifax. I hereby agree to receive calls about loans (which calls may be auto-dialed, use artificial or pre-recorded voices, and/or be text messages) from these companies and their agents to the telephone number(s) I’ve provided.
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="align-middle text-center">
+                                <button id="getresults" class="btn btn-primary text-center" type="submit">Submit to Qualify!</button>
+                            </div>
+
                         </div>
 
                         <div class="clearfix"></div>
@@ -205,16 +215,6 @@
             </div>
         </div>
 
-        <!--buttons-->
-        <div class="row " >
-            <div class="col-lg-12 bottom mb-1 pr-3">
-                <button type="button" class="btn btn-primary btn-lg next-step float-right m-2">
-                    Get Started Now <span style="color:#b10000">|</span>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </button>
-            </div>
-        </div>
-        <!--buttons-->
 
     </div>
     <!--end blue-->
