@@ -180,10 +180,19 @@
                                         required maxlength="9" minlength="9"
                                     />
                             </div>
+
+
                             <div class="form-group row">
                                 <label class="col-form-label col-5">Date of Birth</label>
-                                <input type="date" class="form-control col" name="data[applicants][0][DateOfBirth]" required  />
+
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="date" class="form-control" name="data[applicants][0][DateOfBirth]" required  readonly="readonly" style="background: white;" />
+                                </div>
                             </div>
+
 
 
                             <div class="from-grop row m-4 small">

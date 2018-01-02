@@ -102,5 +102,11 @@ $(document).ready(function() {
     });
 
     $('[data-toggle="tooltip"]').tooltip();
+
+    $('[name="data[applicants][0][DateOfBirth]"]').datepicker({
+        endDate: "-18y",
+        startView: 2,
+        maxViewMode: 3
+    });
     $('form').validate();
 });
