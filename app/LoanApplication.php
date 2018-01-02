@@ -63,6 +63,11 @@ class LoanApplication
             ->expectsXml()
             ->send();
 
+        $apiCall  = new \App\ApiCall();
+        $apiCall->request  = $this->buildBody();
+        $apiCall->response = $response->__toString();
+        $apiCall->saveOrFail();
+
         $message = [
             'approved' => ($response->body->ApplicationPostStatus == 'Success'),
             'status'   => $response->body->ApplicationPostStatus,
