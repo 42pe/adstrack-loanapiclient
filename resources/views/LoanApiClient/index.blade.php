@@ -180,14 +180,18 @@
                                 </select>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-5">Social Security #</label>
-                                <div class="input-group col p-0">
-                                    <span class="input-group-addon"> <i class="fa fa-lock" aria-hidden="true" style="color: green;"></i> </span>
+                                <label class="col-form-label col-5">
+                                    Social Security #
+                                    <span class="badge badge-light"
+                                        data-toggle="tooltip" title="Secure transmission."
+                                        style="font-size: 1em; padding: 0.25em 0.5em; margin-left: 0.5em;"
+                                    >
+                                        <i class="fa fa-lock" style="color: green;"></i>
+                                    </span>
+                                </label>
                                     <input type="number" class="form-control col" name="data[applicants][0][SocialSecurityNumber]"
-                                        placeholder="secure transmission"
                                         required maxlength="9" minlength="9"
                                     />
-                                </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-5">Date of Birth</label>

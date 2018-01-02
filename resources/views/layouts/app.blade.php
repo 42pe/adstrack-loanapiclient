@@ -18,7 +18,7 @@
 <script src="https://use.fontawesome.com/a012acf688.js"></script>
 
 <style type="text/css">
-   footer, .footer {
+footer, .footer {
 	font-size: 12px;
 	background-color: #faf9f9;
 }
@@ -110,10 +110,12 @@ body {
 form {
 	margin-bottom: 50px;
 }
-label {
-	display: block;
+
+label.error{
+	color:red;
+	margin: 0.25em 1em;
 }
-label.error{color:red;}
+
 .text-primary {
 	color: rgba(0,62,126, 0.8);
 }

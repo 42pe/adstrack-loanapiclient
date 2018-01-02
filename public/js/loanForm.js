@@ -101,5 +101,6 @@ $(document).ready(function() {
         $(this).parents("form").submit();
     });
 
-    $('form#LoanApplication').validate();
+    $('[data-toggle="tooltip"]').tooltip();
+    $('form').validate();
 });
