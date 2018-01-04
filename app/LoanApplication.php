@@ -38,7 +38,7 @@ class LoanApplication
                             </Residence>
                             <Occupation type=\"{$this->data['employment'][0]['WorkStatus']}\">
                                 <GrossAnnualIncome>{$this->data['employment'][0]['GrossAnnualIncome']}</GrossAnnualIncome>
-                            </Ocupation>
+                            </Occupation>
                         </Applicant>
                     </Applicants>
                 </LoanApplication>
