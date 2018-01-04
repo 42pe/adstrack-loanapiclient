@@ -3,29 +3,67 @@
 
 @section('content')
 <script src="js/loanForm.js"></script>
+<style>
+#success {
+    background-color:unset;
+    color: inherit;
+}
+#success td strong {
+    display: block;
+    color: #00b4ff;
+}
 
-<div class="row  no-gutters myBg " style="background-image:url('img/same-day-loan.jpg');">
-    <div class="col-lg-6 offset-lg-6 p-3 myBlue" id="bottom-2">
-            <h5>
-                <div>Success</div>
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+</style>
+<div class="row  no-gutters">
+    <div class="col-10 offset-1 p-3 myBlue" id="success">
+            <h3>
+                <div>Congratulations You May Qualify for Funds Today! † </div>
                 <span class="step-subtitle">Your loan was preapproved</span>
-            </h5>
-            <p>Please follow the link to complete your application</p>
-            <div class="row">
-                <?php foreach ($response['full']->Offers[0] as $offer) :?>
-                    <div class="col">
-                        <ul>
-                            <li><strong>Loan amount:</strong>    $<?=number_format((int)  $offer->LoanAmount, 2)?></li>
-                            <li><strong>Interest Rate</strong>    <?=number_format((float) $offer->InterestRate, 2)?>%</li>
-                            <li><strong>Term</strong>             <?=$offer->Term?> months</li>
-                            <li><strong>Monthly payment:</strong> $<?=number_format((int)  $offer->MonthlyPayment, 2)?></li>
-                        </li>
-                        <hr />
-                        <a class="btn btn-primary" href="<?=$offer->OfferUrl?>">Apply now!</a>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+            </h3>
 
+            <table class="table table-sm table-bordered">
+                <?php foreach ($response['full']->Offers[0] as $offer) :?>
+                    <tr>
+                        <td><img src="img/logo-lightstream-suntrust.jpg" /></td>
+                            <td>
+                                <strong>Loan amount:</strong>
+                                $<?=number_format((int)  $offer->LoanAmount, 2)?>
+                            </td>
+                            <td>
+                                <strong>Interest Rate</strong>
+                                <?=number_format((float) $offer->InterestRate, 2)?>%
+                            </td>
+                            <td>
+                                <strong>Term</strong>
+                                <?=$offer->Term?> months
+                            </td>
+                            <td>
+                                <strong>Monthly payment:</strong>
+                                $<?=number_format((int)  $offer->MonthlyPayment, 2)?>
+                            </td>
+                        <td>
+                            <a class="btn btn-primary" href="<?=$offer->OfferUrl?>">
+                                Continue
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+
+            <p>
+                <strong>
+                    † You can fund your loan today if today is a banking business day, your application is approved,
+                    and you complete the following steps by 2:30 p.m. Eastern time: (1) review and electronically
+                    sign your loan agreement; (2) provide us with your funding preferences and relevant banking
+                    information; and (3) complete the final verification process.
+                </strong>
+            </p>
     </div>
     <!--end blue-->
 </div>
