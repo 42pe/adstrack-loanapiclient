@@ -3,7 +3,6 @@ namespace App;
 
 use Faker\Provider\DateTime;
 
-
 class LoanApplication
 {
     private $data = [];
@@ -18,7 +17,7 @@ class LoanApplication
                     <LoanApplicationType>Individual</LoanApplicationType>
                     <LoanPrimaryPurpose>HomeImprovement</LoanPrimaryPurpose>
                     <LoanAmount>{$this->data['LoanAmount']}</LoanAmount>
-                    <LoanTermMonths>{$this->data['LoanTerm']}</LoanTermMonths>
+                    <LoanTermMonths>48</LoanTermMonths>
                     <ApplicationId>$applicationId</ApplicationId>
                     <Applicants>
                         <Applicant type=\"Primary\">
@@ -37,6 +36,9 @@ class LoanApplication
                                     </ZipCode>
                                 </Address>
                             </Residence>
+                            <Occupation type=\"{$this->data['employment'][0]['WorkStatus']}\">
+                                <GrossAnnualIncome>{$this->data['employment'][0]['GrossAnnualIncome']}</GrossAnnualIncome>
+                            </Ocupation>
                         </Applicant>
                     </Applicants>
                 </LoanApplication>

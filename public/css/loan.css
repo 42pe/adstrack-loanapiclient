@@ -96,6 +96,7 @@ form {
 label.error{
 	color:red;
 	margin: 0.25em 1em;
+	flex:inherit;
 }
 
 .text-primary {

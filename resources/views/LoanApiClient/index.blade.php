@@ -37,31 +37,11 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-5">Loan Amount</label>
                                 <select name="data[LoanAmount]" class="form-control col">
-                                    <option value="20000">$20,000</option>
-                                    <option value="30000">$30,000</option>
-                                    <option value="40000">$40,000</option>
-                                    <option value="50000">$50,000</option>
-                                    <option value="60000">$60,000</option>
-                                    <option value="70000">$70,000</option>
-                                    <option value="80000">$80,000</option>
-                                    <option value="90000">$90,000</option>
-                                    <option value="100000">$100,000</option>
-                                    <option value="110000">$110,000</option>
-                                    <option value="120000">$120,000</option>
-                                    <option value="130000">$130,000</option>
-                                    <option value="140000">$140,000</option>
-                                    <option value="150000">$150,000</option>
-                                </select>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-form-label col-5">Loan Term</label>
-                                <select name="data[LoanTerm]" class="form-control col">
-                                    <option value="12">12 months</option>
-                                    <option value="24">24 months</option>
-                                    <option value="36">36 months</option>
-                                    <option value="48">48 months</option>
-                                    <option value="60">60 months</option>
-                                    <option value="72">72 months</option>
+
+                                    <option value="5000">$5,000</option>
+                                    <? for ($i = 10; $i <= 100; $i = $i+10) :?>
+                                        <option value="<?=$i?>000">$<?=$i?>,000</option>
+                                    <? endfor ?>
                                 </select>
                             </div>
 
@@ -169,16 +149,16 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-5">
                                     Social Security #
-                                    <span class="badge badge-light"
-                                        data-toggle="tooltip" title="Secure transmission."
-                                        style="font-size: 1em; padding: 0.25em 0.5em; margin-left: 0.5em;"
-                                    >
+                                </label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon" data-toggle="tooltip" title="Secure transmission.">
                                         <i class="fa fa-lock" style="color: green;"></i>
                                     </span>
-                                </label>
+
                                     <input type="number" class="form-control col" name="data[applicants][0][SocialSecurityNumber]"
                                         required maxlength="9" minlength="9"
                                     />
+                                </div>
                             </div>
 
 
@@ -193,7 +173,27 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Work status</label>
+                                <select class="form-control col" name="data[employment][0][WorkStatus]">
+                                    <option value="EmployedByOther">Employed By Other</option>
+                                    <option value="EmployedBySelf">Employed By Self</option>
+                                    <option value="Retired">Retired</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Homemaker">Homemaker</option>
+                                </select>
+                            </div>
 
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Gross Annual Salary</label>
+
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">
+                                        $
+                                    </span>
+                                    <input type="number" class="form-control text-right" name="data[employment][0][GrossAnnualIncome]" required  />
+                                </div>
+                            </div>
 
                             <div class="from-grop row m-4 small">
                                 <div class="form-check row">
@@ -213,7 +213,7 @@
 
 
                             <div class="align-middle text-center">
-                                <button id="getresults" class="btn btn-primary text-center" type="submit">Submit to Qualify!</button>
+                                <button id="getresults" class="btn btn-primary text-center" type="submit">Get Your Results</button>
                             </div>
 
                         </div>
