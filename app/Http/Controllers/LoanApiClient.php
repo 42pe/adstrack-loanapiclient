@@ -15,6 +15,8 @@ class LoanApiClient extends Controller
     {
         $client   = new \App\LoanApplication($_POST['data']);
         $response = $client->send();
-        return view('LoanApiClient/response')->with(compact('response'));
+
+        $view = ($response['approved']) ? 'success' : 'response';
+        return view('LoanApiClient/'.$view)->with(compact('response'));
     }
 }
