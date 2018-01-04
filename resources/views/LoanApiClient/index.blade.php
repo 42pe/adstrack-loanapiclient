@@ -39,9 +39,9 @@
                                 <select name="data[LoanAmount]" class="form-control col">
 
                                     <option value="5000">$5,000</option>
-                                    <? for ($i = 10; $i <= 100; $i = $i+10) :?>
+                                    <?php for ($i = 10; $i <= 100; $i = $i+10) :?>
                                         <option value="<?=$i?>000">$<?=$i?>,000</option>
-                                    <? endfor ?>
+                                    <?php endfor ?>
                                 </select>
                             </div>
 
