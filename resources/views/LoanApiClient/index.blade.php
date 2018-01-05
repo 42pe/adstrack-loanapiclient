@@ -169,7 +169,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </span>
-                                    <input type="date" class="form-control" name="data[applicants][0][DateOfBirth]" required  readonly="readonly" style="background: white;" />
+                                    <input type="text" class="form-control" name="data[applicants][0][DateOfBirth]" required  readonly="readonly" style="background: white;" placeholder="mm/dd/yyyy" />
                                 </div>
                             </div>
 
