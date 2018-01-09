@@ -45,6 +45,28 @@
                                 </select>
                             </div>
 
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Work status</label>
+                                <select class="form-control col" name="data[employment][0][WorkStatus]">
+                                    <option value="EmployedByOther">Employed By Other</option>
+                                    <option value="EmployedBySelf">Employed By Self</option>
+                                    <option value="Retired">Retired</option>
+                                    <option value="Student">Student</option>
+                                    <option value="Homemaker">Homemaker</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">Gross Annual Income</label>
+
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon">
+                                        $
+                                    </span>
+                                    <input type="number" class="form-control text-right" name="data[employment][0][GrossAnnualIncome]" required  />
+                                </div>
+                            </div>
+
                             <!--buttons-->
                             <div class="row " >
                                 <div class="col-lg-12 bottom mb-1 pr-3">
@@ -161,7 +183,6 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group row">
                                 <label class="col-form-label col-5">Date of Birth</label>
 
@@ -170,28 +191,6 @@
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </span>
                                     <input type="text" class="form-control" name="data[applicants][0][DateOfBirth]" required  readonly="readonly" style="background: white;" placeholder="mm/dd/yyyy" />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-form-label col-5">Work status</label>
-                                <select class="form-control col" name="data[employment][0][WorkStatus]">
-                                    <option value="EmployedByOther">Employed By Other</option>
-                                    <option value="EmployedBySelf">Employed By Self</option>
-                                    <option value="Retired">Retired</option>
-                                    <option value="Student">Student</option>
-                                    <option value="Homemaker">Homemaker</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-form-label col-5">Gross Annual Salary</label>
-
-                                <div class="input-group col p-0">
-                                    <span class="input-group-addon">
-                                        $
-                                    </span>
-                                    <input type="number" class="form-control text-right" name="data[employment][0][GrossAnnualIncome]" required  />
                                 </div>
                             </div>
 
