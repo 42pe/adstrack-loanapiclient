@@ -63,7 +63,7 @@
                                     <span class="input-group-addon">
                                         $
                                     </span>
-                                    <input type="number" class="form-control text-right" name="data[employment][0][GrossAnnualIncome]" required  />
+                                    <input type="number" class="form-control" name="data[employment][0][GrossAnnualIncome]" required  />
                                 </div>
                             </div>
 
