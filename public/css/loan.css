@@ -94,9 +94,11 @@ form {
 }
 
 label.error{
-	color:red;
-	margin: 0.25em 1em;
-	flex:inherit;
+	color: red;
+	margin:  0.25em 1em;
+	flex:    inherit;
+	display: block;
+	width:   100%;
 }
 
 .text-primary {
