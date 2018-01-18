@@ -176,10 +176,7 @@
                                     <span class="input-group-addon" data-toggle="tooltip" title="Secure transmission.">
                                         <i class="fa fa-lock" style="color: green;"></i>
                                     </span>
-
-                                    <input type="number" class="form-control col" name="data[applicants][0][SocialSecurityNumber]"
-                                        required maxlength="9" minlength="9"
-                                    />
+                                    <input type="text" class="form-control col" name="data[applicants][0][SocialSecurityNumber]" required />
                                 </div>
                             </div>
 
@@ -190,7 +187,7 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </span>
-                                    <input type="text" class="form-control" name="data[applicants][0][DateOfBirth]" required  readonly="readonly" style="background: white;" placeholder="mm/dd/yyyy" />
+                                    <input type="text" class="form-control" name="data[applicants][0][DateOfBirth]" required placeholder="mm/dd/yyyy" />
                                 </div>
                             </div>
 
