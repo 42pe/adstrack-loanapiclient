@@ -27,15 +27,13 @@
                     <td class="text-center"><img src="img/lending tree.png" style="height: 4em; padding: 0.2 em;" /></td>
                     <td>
                         <ul>
-                            <li>Consectetur duis est nulla qui adipisicing. </li>
-                            <li>Occaecat voluptate veniam minim ad. </li>
-                            <li>Excepteur nulla esse cillum culpa officia ad qui id sunt Lorem ut Lorem tempor. </li>
-                            <li>Reprehenderit ex ut sit ea qui exercitation. </li>
-                            <li>Aliquip incididunt consectetur sit elit. </li>
+                            <li>Largest national network of lenders</li>
+                            <li>Compare live rates</li>
+                            <li>Get a Home Equity Loan</li>
                         </ul>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="#">
+                        <a class="btn btn-primary" href="https://offers.lendingtree.com/tla.aspx?tid=h2&loan-type=HOMEEQUITY#/step/2/">
                             Apply Now
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -45,15 +43,29 @@
                     <td class="text-center"><img src="img/lendkey.png"  style="height: 4em;  padding: 0.2 em;" /></td>
                     <td>
                         <ul>
-                            <li>Occaecat voluptate veniam minim ad. </li>
-                            <li>Consectetur duis est nulla qui adipisicing. </li>
-                            <li>Aliquip incididunt consectetur sit elit. </li>
-                            <li>Reprehenderit ex ut sit ea qui exercitation. </li>
-                            <li>Excepteur nulla esse cillum culpa officia ad qui id sunt Lorem ut Lorem tempor. </li>
+                            <li>Takes less than 2 Min to get results</li>
+                            <li>Lowest rates available to qualifying applicants</li>
+                            <li>Connect with contractors in your area</li>
                         </ul>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="#">
+                        <a class="btn btn-primary" href="https://homeimprovement.lendkey.com/loans/new?">
+                            Apply Now
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center"><img src="img/avant.png"  style="height: 4em;  padding: 0.2 em;" /></td>
+                    <td>
+                        <ul>
+                            <li>One step process to apply</li>
+                            <li>Flexible payment plans</li>
+                            <li>Borrow up to $35,000</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="https://www.avant.com/apply/94809222#!/personal">
                             Apply Now
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </a>
