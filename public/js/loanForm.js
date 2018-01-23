@@ -145,11 +145,28 @@ $(document).ready(function() {
 
         return res;
 
-    }, "Please enter a valid date!");
+    }, "Please enter a valid date.");
+
+    $.validator.addMethod("over21", function(value, element) {
+        function _calculateAge(birthday) { // birthday is a date
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        }
+
+        try {
+            var d = new Date(value);
+            return (_calculateAge(d) > 21);
+        } catch (e) {
+          console.error(e);
+          return false;
+        }
+    }, "You must be over 21 to apply for a loan.");
+
 
     $("form").validate({ errorPlacement: function(error, element) {
         error.insertAfter(element.parent());
-      }, rules: { "data[applicants][0][DateOfBirth]": { realDate: true } } });
+      }, rules: { "data[applicants][0][DateOfBirth]": { realDate: true, over21: true } } });
 });
 
 // Array.includes polyfill
