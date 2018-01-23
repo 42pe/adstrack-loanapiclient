@@ -99,6 +99,7 @@ label.error{
 	flex:    inherit;
 	display: block;
 	width:   100%;
+	text-align: right;
 }
 
 .text-primary {
