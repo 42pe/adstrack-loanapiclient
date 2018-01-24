@@ -128,7 +128,7 @@ $(document).ready(function() {
         }
 
         // check if year is valid
-        if (yyyy<1900 && yyyy>3000) {
+        if (yyyy<1900 || yyyy>3000) {
             return false;
         }
 
