@@ -5,13 +5,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js"></script>
 <script src="js/loanForm.js"></script>
 
-<script>
-$(document).ready(function(){
-  $('[placeholder="mm/dd/yyyy"]').mask('00/00/0000');
-  $('[placeholder="___ - __ - ____"]').mask('000 - 00 - 0000');
-});
-</script>
-
 
 <div class="row  no-gutters myBg " style="background-image:url('img/same-day-loan.jpg');">
     <div class="col-lg-6 offset-lg-6 p-3 myBlue">
@@ -72,19 +65,7 @@ $(document).ready(function(){
                                     <span class="input-group-addon">
                                         $
                                     </span>
-                                    <input type="text" class="form-control" name="data[employment][0][GrossAnnualIncome]" required  />
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-form-label col-5">
-                                    Social Security #
-                                </label>
-                                <div class="input-group col p-0">
-                                    <span class="input-group-addon" data-toggle="tooltip" title="Secure transmission.">
-                                        <i class="fa fa-lock" style="color: green;"></i>
-                                    </span>
-                                    <input type="text" class="form-control col" name="data[applicants][0][SocialSecurityNumber]" required placeholder="___-__-____" />
+                                    <input type="text" class="form-control money" name="data[employment][0][GrossAnnualIncome]" required  />
                                 </div>
                             </div>
 

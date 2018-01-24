@@ -103,6 +103,10 @@ $(document).ready(function() {
 
     $('[data-toggle="tooltip"]').tooltip();
 
+    $('[placeholder="mm/dd/yyyy"]').mask("00/00/0000");
+    $('[placeholder="___-__-____"]').mask("000-00-0000");
+    $(".money").mask("#,##0", {reverse:true});
+
     $.validator.addMethod("realDate", function(value, element) {
 
         function leapYear(year) {
