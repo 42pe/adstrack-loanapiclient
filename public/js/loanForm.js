@@ -123,6 +123,11 @@ $(document).ready(function() {
             return false
         }
 
+        // check if year is valid
+        if (yyyy<1900 && yyyy>3000) {
+            return false;
+        }
+
         // check if month is valid
         if (mm < 1 || mm > 12) {
             return false;
