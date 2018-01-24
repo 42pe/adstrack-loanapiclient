@@ -76,6 +76,18 @@ $(document).ready(function(){
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label class="col-form-label col-5">
+                                    Social Security #
+                                </label>
+                                <div class="input-group col p-0">
+                                    <span class="input-group-addon" data-toggle="tooltip" title="Secure transmission.">
+                                        <i class="fa fa-lock" style="color: green;"></i>
+                                    </span>
+                                    <input type="text" class="form-control col" name="data[applicants][0][SocialSecurityNumber]" required placeholder="___-__-____" />
+                                </div>
+                            </div>
+
                             <!--buttons-->
                             <div class="row " >
                                 <div class="col-lg-12 bottom mb-1 pr-3">
@@ -185,7 +197,7 @@ $(document).ready(function(){
                                     <span class="input-group-addon" data-toggle="tooltip" title="Secure transmission.">
                                         <i class="fa fa-lock" style="color: green;"></i>
                                     </span>
-                                    <input type="text" class="form-control col" name="data[applicants][0][SocialSecurityNumber]" required placeholder="___ - __ - ____" />
+                                    <input type="text" class="form-control col" name="data[applicants][0][SocialSecurityNumber]" required placeholder="___-__-____" />
                                 </div>
                             </div>
 

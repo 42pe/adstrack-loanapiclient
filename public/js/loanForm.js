@@ -168,10 +168,29 @@ $(document).ready(function() {
         }
     }, "You must be over 21 to apply for a loan.");
 
+    $.validator.addMethod("SocialSecurity", function(value) {
+        function validSSN(value) {
+            var ssnPattern = RegExp("^[0-9]{3}s?-?s?[0-9]{2}s?-?s?[0-9]{4}$");
+            console.log(ssnPattern.test(value));
+            return ssnPattern.test(value);
+        }
+
+        return validSSN(value) || value == "";
+      }, "Please enter a valid SSN");
+
 
     $("form").validate({ errorPlacement: function(error, element) {
         error.insertAfter(element.parent());
-      }, rules: { "data[applicants][0][DateOfBirth]": { realDate: true, over21: true } } });
+      }, rules: { 
+            "data[applicants][0][DateOfBirth]": { 
+                realDate: true, 
+                over21: true 
+            },
+            "data[applicants][0][SocialSecurityNumber]": {
+                SocialSecurity: true
+            }
+        } 
+    });
 });
 
 // Array.includes polyfill
