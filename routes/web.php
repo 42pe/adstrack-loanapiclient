@@ -14,3 +14,10 @@
 
 Route::get('/', 'LoanApiClient@index');
 Route::post('/', 'LoanApiClient@post');
+
+Route::match(['get', 'post'],'/about', function(){
+  return view('LoanApiClient/about');
+});
+Route::match(['get', 'post'],'/terms', function(){
+  return view('LoanApiClient/terms');
+});
