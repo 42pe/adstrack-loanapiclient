@@ -72,7 +72,7 @@
             <div class="container">
                 <div class="row">
                 <div class="col-md-6"> &copy; Copyright 2017</div>
-                <div class="col-md-6 text-right"> <a href="/terms">Privacy Policy and Terms of Use</a></div>
+                <div class="col-md-6 text-right"> <a href="<?php echo $app['url']->to('/'); ?>/terms">Privacy Policy and Terms of Use</a></div>
                 </div>
             </div>
         </footer>
