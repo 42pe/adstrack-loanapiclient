@@ -58,7 +58,7 @@
 							<div class="col-md-12 d-flex ">
 							<ul class="list-inline  mx-auto justify-content-center">
 								<li class="list-inline-item pr-md-5 mr-md-5 copyt text-sm"><i class="fa fa-clock-o fa-3x align-middle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="">Same day <span class="red">approval</span></span></li>
-								<li class="list-inline-item pr-md-5 mr-md-5 copyt"><i class="fa fa-thumbs-up fa-3x  align-middle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; <span class="">Guaranteed <span class="red">Lowest</span> Rates</span></li>
+								<li class="list-inline-item pr-md-5 mr-md-5 copyt"><i class="fa fa-thumbs-up fa-3x  align-middle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp; <span class="">Guaranteed <span class="red">Low</span> Rates</span></li>
 								<li class="list-inline-item copyt"><i class="fa fa-3x fa-star-o  align-middle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<span class="">Fast & <span class="red">Simple</span> Process</span></li>
 							</ul>
 							</div>
@@ -71,8 +71,8 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                <div class="col-md-6"> &copy; Copyright 2017</div>
-                <div class="col-md-6 text-right"> <a href="<?php echo $app['url']->to('/'); ?>/terms">Privacy Policy and Terms of Use</a></div>
+                <div class="col-md-6"> &copy; Copyright 2018</div>
+                <div class="col-md-6 text-right"><a href="<?php echo $app['url']->to('/'); ?>/econsent">E-Consent</a> | <a href="<?php echo $app['url']->to('/'); ?>/terms">Terms &amp; Conditions</a></div>
                 </div>
             </div>
         </footer>

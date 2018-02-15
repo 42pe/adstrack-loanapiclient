@@ -85,7 +85,7 @@
                         <!-- Step #2 -->
                         <div role="tabpanel" class="tab-pane p-2">
                             <h5>
-                                <div>Step 1 of 2</div>
+                                <div>Step 2 of 2</div>
                                 <span class="step-subtitle">Applicant Information</span>
                             </h5>
                             <div class="form-group row">

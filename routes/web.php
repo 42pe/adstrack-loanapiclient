@@ -21,3 +21,6 @@ Route::match(['get', 'post'],'/about', function(){
 Route::match(['get', 'post'],'/terms', function(){
   return view('LoanApiClient/terms');
 });
+Route::match(['get', 'post'],'/econsent', function(){
+  return view('LoanApiClient/econsent');
+});
