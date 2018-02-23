@@ -42,7 +42,7 @@
 
     <h3><small>4.0</small> Unsubscribe, Opt Out or Revoke</h3>
     <ol class="letter-based">
-        <li>a. You may revoke consent at any time for any use of PII collected from you under this Privacy Policy. To revoke consent, indicate by emailing us at support@Homeimprovementloan.guide with the word “revoke Personal Information” in the subject line.</li>
+        <li>You may revoke consent at any time for any use of PII collected from you under this Privacy Policy. To revoke consent, indicate by emailing us at support@Homeimprovementloan.guide with the word “revoke Personal Information” in the subject line.</li>
     </ol>
     
     <h3><small>5.0</small> Privacy Policies of Third Parties</h3>
