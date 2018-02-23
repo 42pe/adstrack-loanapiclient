@@ -14,7 +14,7 @@
             <strong>CONSUMER CONSENT.</strong> By submitting your request to be matched with lenders, you affirmatively consent and agree to receive all Communications required under law electronically. These Communications may be delivered to you via email or online at the website of the third party lender. You further affirmatively consent that your electronic signature on agreements and documents has the same effect as if you signed them in ink.
         </li>
         <li>
-            <strong>SCOPE OF CONSENT.</strong> You consents provided in Section 1 to receive Communications and to do business electronically applies to your request to HomeImprovementLoan.Guide &amp; AdsTrack  to be matched with third party lenders and to those third party lenders. Your consents also apply to all online interactions between you and the third party lenders, including those conducted via mobile devices.
+            <strong>SCOPE OF CONSENT.</strong> Your consents provided in Section 1 to receive Communications and to do business electronically applies to your request to HomeImprovementLoan.Guide &amp; AdsTrack  to be matched with third party lenders and to those third party lenders. Your consents also apply to all online interactions between you and the third party lenders, including those conducted via mobile devices.
         </li>
         <li>
             <strong>WHAT YOU NEED - HARDWARE AND SOFTWARE REQUIREMENTS.</strong> In order to access and retain the Communications electronically, you will need the following:
