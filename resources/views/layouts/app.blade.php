@@ -72,7 +72,7 @@
             <div class="container">
                 <div class="row">
                 <div class="col-md-6"> &copy; Copyright 2018</div>
-                <div class="col-md-6 text-right"><a href="<?php echo $app['url']->to('/'); ?>/econsent">E-Consent</a> | <a href="<?php echo $app['url']->to('/'); ?>/terms">Terms &amp; Conditions</a></div>
+                <div class="col-md-6 text-right"><a href="<?php echo $app['url']->to('/'); ?>/econsent">E-Consent</a> | <a href="<?php echo $app['url']->to('/'); ?>/terms">Privacy Policy / Terms &amp; Conditions</a></div>
                 </div>
             </div>
         </footer>
