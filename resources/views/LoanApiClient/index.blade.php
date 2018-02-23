@@ -197,7 +197,7 @@
                                 <div class="form-check row">
                                     <input type="checkbox" class="form-check-input col-1" name="data[MarketingOptIn]"  id="data[MarketingOptIn]" />
                                     <label class="form-check-label small" for="data[MarketingOptIn]">
-                                        By clicking the “Get Your Results” button and submitting my information, I hereby consent to receiving email, SMS or other marketing communications from (Company), and its trusted partners and third party finders / aggregators working on behalf of lenders. I understand that my consent to receive calls is not required in order to purchase any goods or services. If you don’t want to receive any marketing communications, just un-tick the box.
+                                        By clicking the “Get Your Results” button and submitting my information, I hereby consent to receiving email, SMS or other marketing communications from (Company), and its trusted partners and third party finders / aggregators working on behalf of lenders. I understand that my consent to receive calls is not required in order to purchase any goods or services. If you want to receive marketing communications, just tick the box.
                                     </label>
                                 </div>
 
