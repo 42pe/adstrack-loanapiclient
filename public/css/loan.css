@@ -153,3 +153,7 @@ ol > li {
 h3 {
 	margin-bottom: 20px;
 }
+
+.form-check-label > a {
+	color: #fff;
+}
