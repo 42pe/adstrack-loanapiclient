@@ -20,7 +20,7 @@
 </style>
 <div class="row  no-gutters">
     <div class="col-10 offset-1 p-3 myBlue" id="success">
-            <h3>Congratulations May You Qualify with These Top Lenders!</h3>
+            <h3>Congratulations You May Qualify with These Top Lenders!</h3>
 
             <table class="table table-sm table-bordered">
                 <tr>
