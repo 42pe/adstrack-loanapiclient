@@ -29,7 +29,7 @@
                             <hr/>
 
                             <div class="form-group row">
-                                <label class="col-form-label col-5">House Own or Rent?</label>
+                                <label class="col-form-label col-5">Home Own or Rent?</label>
                                 <select name="data[applicants][0][HousingStatus]" class="form-control col" required>
                                     <option value="Own">Own</option>
                                     <option value="Rent">Rent</option>

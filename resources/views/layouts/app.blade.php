@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-9 text-center text-md-right">
                     <h5 class="loan pt-5-md">You may qualify for a <span style="color:#00b4ff;">same day</span> home improvement loan!</h5>
-                    <p><i>checking to see if you <span style="color: #f01717;font-weight:bold">qualify for a loan</span> won't affect your credit score</i><br>
+                    <p><i>Check to see if you <span style="color: #f01717;font-weight:bold">qualify for a loan</span> today!</i><br>
                     </p>
                 </div>
             </div>
