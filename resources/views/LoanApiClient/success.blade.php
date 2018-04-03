@@ -36,12 +36,12 @@
                             </td>
                             <td>
                                 <strong>APR</strong>
-                                <span><?=number_format((float) $offer->InterestRate, 2)?>%</span><br/>
+                                <span><?=number_format((float) $offer->InterestRate, 2)?>%<sup>*</sup></span><br/>
                                 <small>with AutoPay</small>
                             </td>
                             <td>
                                 <strong>Term</strong>
-                                <?=$offer->Term?> months
+                                <?=$offer->Term?> months<sup>*</sup>
                             </td>
                             <td>
                                 <strong>Monthly payment:</strong>
