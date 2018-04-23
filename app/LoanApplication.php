@@ -54,11 +54,11 @@ class LoanApplication
 
     public function send()
     {
-        $uri      = 'https://testapi.lightstream.com/LoanApplication';
+        $uri      = 'https://api.lightstream.com/LoanApplication';
         $response = \Httpful\Request::post($uri)
             ->addHeaders(array(
                 'Content-type'           => 'application/xml',
-                'X-Lightstream-ApiKey'   => '18ef2dde-a502-48fe-8a72-6de365cb801c',
+                'X-Lightstream-ApiKey'   => 'a3039be1-358f-4c2a-8f06-fb3238dca58e',
                 // 'X-Lightstream-TestMode' => 'True',
             ))
             ->body($this->buildBody())
