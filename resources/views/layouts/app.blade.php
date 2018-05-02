@@ -24,7 +24,9 @@
 
 	<link rel="stylesheet" href="css/loan.css"  />
 
-
+    @include('subviews.trackers.googleAnalytics')
+    @include('subviews.trackers.fbPixel')
+    @include('subviews.trackers.yahooGemini')
 
   </head>
 

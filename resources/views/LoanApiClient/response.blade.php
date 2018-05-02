@@ -18,6 +18,9 @@
 }
 
 </style>
+
+@include('subviews.trackers.taboolaTracker')
+
 <div class="row  no-gutters">
     <div class="col-10 offset-1 p-3 myBlue" id="success">
             <h3>Congratulations You May Qualify with These Top Lenders!</h3>

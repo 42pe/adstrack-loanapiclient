@@ -5,6 +5,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.min.js"></script>
 <script src="js/loanForm.js"></script>
 
+@include('subviews.trackers.taboolaTracker')
 
 <div class="row  no-gutters myBg " style="background-image:url('img/same-day-loan.jpg');">
     <div class="col-lg-6 offset-lg-6 p-3 myBlue">

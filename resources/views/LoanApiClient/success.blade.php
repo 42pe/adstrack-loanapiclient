@@ -19,6 +19,9 @@
 }
 
 </style>
+
+@include('subviews.trackers.taboolaConversion')
+
 <!-- Offer Conversion: Home Improvement Loan Guide *Exclusive* -->
 <img src="https://adstrackmobile.go2cloud.org/aff_l?offer_id=1022" width="1" height="1" />
 <!-- // End Offer Conversion -->
